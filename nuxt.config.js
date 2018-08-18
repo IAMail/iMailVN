@@ -75,7 +75,7 @@ module.exports = {
                 response_type: 'token',
                 token_type: 'Bearer',
                 redirect_uri: undefined,
-                client_id: '331857099956-0pq2d7knelhk7nkd3itq1efdb71qbkad.apps.googleusercontent.com',
+                client_id: '314170165517-1fdennrqq5ng1l944648ijkv58er0ou4.apps.googleusercontent.com',
                 token_key: 'access_token'
             }
         }

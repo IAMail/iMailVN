@@ -22,7 +22,7 @@ export default function (ctx, inject) {
   $auth.registerStrategy('local', new scheme_3e2123be($auth, {"endpoints":{"login":{"url":"/api/auth/login","method":"post","propertyName":"token"},"logout":{"url":"/api/auth/logout","method":"post"},"user":{"url":"/api/auth/user","method":"get","propertyName":"user"}},"_name":"local"}))
 
   // social
-  $auth.registerStrategy('social', new scheme_6ce4fcca($auth, {"authorization_endpoint":"https://accounts.google.com/o/oauth2/auth","userinfo_endpoint":"https://www.googleapis.com/oauth2/v3/userinfo","scope":["openid","profile","email","https://mail.google.com/"],"response_type":"token","token_type":"Bearer","client_id":"331857099956-0pq2d7knelhk7nkd3itq1efdb71qbkad.apps.googleusercontent.com","token_key":"access_token","_name":"social"}))
+  $auth.registerStrategy('social', new scheme_6ce4fcca($auth, {"authorization_endpoint":"https://accounts.google.com/o/oauth2/auth","userinfo_endpoint":"https://www.googleapis.com/oauth2/v3/userinfo","scope":["openid","profile","email","https://mail.google.com/"],"response_type":"token","token_type":"Bearer","client_id":"314170165517-1fdennrqq5ng1l944648ijkv58er0ou4.apps.googleusercontent.com","token_key":"access_token","_name":"social"}))
 
   // Initialize auth
   return $auth.init().catch(error => {
