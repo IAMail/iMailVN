@@ -3,9 +3,8 @@
         <header class="masthead">
             <div class="inner">
                 <h3 class="masthead-brand">
-	
+                    <img src="/logo.png" height="8%" width="8%">
                     <nuxt-link to="/">iMail</nuxt-link>
-						<img src="/logo.png" height="5%" width="5%">
                 </h3>
                 <nav class="nav nav-masthead justify-content-center">
                     <nuxt-link to="/" class="nav-link active" v-if="!$auth.user">Trang chủ</nuxt-link>
