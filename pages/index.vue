@@ -61,12 +61,20 @@
                     <div class="mail-list has-text-left">
                         <b-table :fields="fields" :items="emails">
                             <template slot="title" slot-scope="data">
-                                <a href="javascript:void(0);"><h5 @click="readEmail(data.item)">
-                                    <span class="icon left">
-                                        <i class="mdi mdi mdi-email"></i>
-                                    </span>
-                                    {{getField(data.item, 'Subject')}}
-                                </h5></a>
+                                <a href="javascript:void(0);">
+                                    <h5 v-if="isRead(data)" @click="readEmail(data.item)">
+                                        <span class="icon left">
+                                            <i class="mdi mdi mdi-email"></i>
+                                        </span>
+                                        {{getField(data.item, 'Subject')}}
+                                    </h5>
+                                    <u v-else @click="readEmail(data.item)">
+                                        <span class="icon left">
+                                            <i class="mdi mdi mdi-email"></i>
+                                        </span>
+                                        {{getField(data.item, 'Subject')}}
+                                    </u>
+                                </a>
                             </template>
                             <template slot="sender" slot-scope="data">
                                 {{getField(data.item, 'From')}}
@@ -253,6 +261,7 @@
             },
 
             readEmail(email) {
+                this.markAsRead(email)
                 this.activeMail = email
                 this.showModal('mail')
             },
@@ -381,6 +390,18 @@
                         duration: 1000
                     })
                 }
+            },
+            async markAsRead(email) {
+                let url = detailUrl + email.id + '/modify'
+                let data = {removeLabelIds: ['UNREAD']}
+                await this.$axios.post(url, data).then(res => {
+                    console.log('bla bla', res)
+                }).catch(error => {
+                    console.log('error', error)
+                })
+            },
+            isRead(data) {
+                return data.item.labelIds.includes('UNREAD')
             }
         },
         async created() {
